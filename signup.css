@@ -1,0 +1,91 @@
+body {
+    display: flex;
+    font-family: Arial, sans-serif;
+    background-color: #cfd8dc;
+}
+html {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    align-items: center;
+    height: 100px;
+    max-width: 400px;
+    margin-top: 40px;
+}
+
+form {
+    max-width: 500px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
+}
+.form-group{
+    margin-right: 10px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    width: 300px;
+}
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #007bff;
+}
+
+
+label {
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100px;
+    margin-left: 100px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Center the date picker */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.signup-prompt {
+    margin-top: 20px;
+    text-align: center;
+    color: #777;
+}
+
+.signup-prompt a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.signup-prompt a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media only screen and (max-width: 600px) {
+    form {
+        max-width: 90%;
+    }
+}
