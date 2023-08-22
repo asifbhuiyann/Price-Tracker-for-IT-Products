@@ -46,7 +46,12 @@ input {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
-
+.form-group .validation-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+    text-align: center;
+}
 button {
     background-color: #007bff;
     color: white;
