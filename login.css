@@ -2,13 +2,13 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #cfd8dc;
+    background-color: rgb(184, 177, 177);
 }
 .container {
     display: flex;
-    flex-direction: column; /* Stack the sections vertically */
-    justify-content: center; /* Align sections vertically in the center */
-    align-items: center; /* Align sections horizontally in the center */
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
     height: 100vh;
 }
 
@@ -17,13 +17,13 @@ body {
     background-color: #f0f0f0;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: auto; /* Add some spacing between the sections */
+    margin-bottom: auto; 
     margin-top: 40px;
-    max-width: 400px; /* Limit the width of the sections for better readability */
+    max-width: 400px;
 }
 
 .welcome-section h1, .welcome-section p {
-    text-align: center; /* Center the text within the welcome section */
+    text-align: center; 
 }
 
 .form-section {
@@ -32,7 +32,7 @@ body {
 }
 
 h1, h2 {
-    color: #007bff;
+    color: #000000;
 }
 
 form {
@@ -93,18 +93,6 @@ button:hover {
 
 .password-container {
     position: relative;
-}
-
-.toggle-password {
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
-    cursor: pointer;
-    width: 20px;
-    height: 20px;
-    background-image: url('/GPT_CLone/eye_icon.png'); 
-    background-size: cover;
 }
 
 

@@ -10,10 +10,24 @@
 </head>
 
 <body>
+
+        <nav class="navbar">
+            <div class="navbar-toggle" onclick="toggleNavbar()">
+                <button id="menu">Menu</button>
+            </div>
+            <div class="navbar-options" id="navbarOptions">
+                <a href="login.html" target="_blank"><button id="btn" type="button">LOGIN</button></a>
+                <a href="about.html" target="_blank"><button id="btn" type="button">ABOUT US</button></a>
+                <a href="service.html" target="_blank"><button id="btn" type="button">SERVICES</button></a><br>
+            </div>     
+        </nav>
+    <div class="intro">
+        <p id="intro">Price Tracker For IT Products</p>
+    </div>
     <div class="container">
         <h1>Complete Sign Up</h1>
 
-        <form action="signup.php" method="post">
+        <form action="#" method="post">
 
             <div class="form-group">
                 <label for="firstName">First Name:</label>
@@ -63,6 +77,78 @@
             </div>
         </form>
     </div>
+
+    <script>
+                function toggleNavbar() {
+            const navbarOptions = document.getElementById("navbarOptions");
+            navbarOptions.classList.toggle("show");
+        }
+        function toggleNavbar() {
+    const navbarOptions = document.getElementById("navbarOptions");
+    navbarOptions.classList.toggle("show");
+}
+//About Me Starts
+function toggleButtons(buttonId) {
+    const buttonSection = document.querySelector(".button-section");
+    const buttons = buttonSection.querySelectorAll("button");
+    
+    buttons.forEach(button => {
+        if (button.id === buttonId) {
+            button.style.display = "block";
+        } else {
+            button.style.display = "none";
+        }
+    });
+}
+
+function navigateToAbout() {
+    window.location.href = "about.html"; // Navigate to the about.html file
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Add any additional initialization code if needed
+});
+//About Mr Ends
+
+//Services Starts
+function toggleButtons(buttonId) {
+    const buttonSection = document.querySelector(".button-section");
+    const buttons = buttonSection.querySelectorAll("button");
+    
+    buttons.forEach(button => {
+        if (button.id === buttonId) {
+            button.style.display = "block";
+        } else {
+            button.style.display = "none";
+        }
+    });
+}
+
+function navigateToService() {
+    window.location.href = "service.html"; // Navigate to the about.html file
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Add any additional initialization code if needed
+});
+//Services Ends
+
+//Contact Starts
+function toggleButtons(buttonId) {
+    const buttonSection = document.querySelector(".button-section");
+    const buttons = buttonSection.querySelectorAll("button");
+    
+    buttons.forEach(button => {
+        if (button.id === buttonId) {
+            button.style.display = "block";
+        } else {
+            button.style.display = "none";
+        }
+    });
+}
+
+    </script>
+
 </body>
 
 </html>

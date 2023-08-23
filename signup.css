@@ -1,24 +1,68 @@
 body {
     display: flex;
     font-family: Arial, sans-serif;
-    background-color: #cfd8dc;
+    background-color: rgb(0, 0, 0);
 }
 html {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
+    margin-right: 60px;
+    margin-top: 40px;
 }
 
-.container {
-    align-items: center;
-    height: 100px;
-    max-width: 400px;
-    margin-top: 40px;
+.navbar-toggle {
+    display: inline;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative; 
+    height: 40px;
+    cursor: pointer; 
+}
+#menu{
+    width: 100px;
+    margin-right: 150px;
+    margin-top: 5px;
+    background: rgb(67, 69, 71);
+    font-size: 20px;
+}
+#menu:hover {
+    background: rgb(20, 127, 228);
+}
+.navbar{
+    float: left;
+}
+.navbar-options {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100px;
+    right: 1767px;
+    background-color: #000000;
+    border-radius: 5px;
+    
+}
+#btn{
+    background-color: #777;
+}
+#btn:hover{
+    background-color: tomato;
+}
+#navbarOptions a {
+    
+    color: #000000;
+    text-decoration: none;
+    padding: 10px 0;
+}
+
+/* Show the options when the navbar-toggle is clicked */
+.show {
+    display: flex;
 }
 
 form {
     max-width: 500px;
-    background-color: #f0f0f0;
+    background-color: #e2dddd;
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
@@ -32,9 +76,18 @@ form {
 h1 {
     text-align: center;
     margin-bottom: 20px;
-    color: #007bff;
+    color: white;
 }
 
+#intro{
+background-color: rgb(0, 0, 0);
+height: 400px;
+width: 500px;
+color: rgb(255, 255, 255);
+margin-right: 700px;
+margin-top: 300px;
+font-size: 70px;
+}
 
 label {
     font-weight: bold;
@@ -76,7 +129,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .signup-prompt {
     margin-top: 20px;
     text-align: center;
-    color: #777;
+    color: #383535;
 }
 
 .signup-prompt a {
