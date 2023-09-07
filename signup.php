@@ -1,4 +1,4 @@
-<?php include 'connect.php';
+<?php include 'dbconnect.php';
 
 $message = ''; // Variable to store the success message
 
@@ -9,13 +9,13 @@ if (isset($_POST['save'])) {
     $last_name = $_POST["last_name"];
     $mobile_number = $_POST["mobile_number"];
     $sex = $_POST["sex"];
+    $birthDate = $_POST["birthDate"];
     $email = $_POST["email"];
-    $birth_date = $_POST["birth_date"];
     $password = $_POST["password"];
 
     // Save the user's data to the database
-    $sql = "INSERT INTO users (first_name, last_name, mobile_number, sex, email, birth_date, password) 
-    VALUES ('$first_name','$last_name', '$mobile_number', '$sex' ,'$email','$birth_date',' $password')";
+    $sql = "INSERT INTO users (first_name, last_name, mobile_number, sex, birthDate, email, password) 
+    VALUES ('$first_name','$last_name', '$mobile_number', '$sex' ,'$birthDate', $email',' $password')";
 
     if ($conn->query($sql) === TRUE) {
         $message = "New Data Inserted Successfully";
@@ -52,7 +52,9 @@ if (isset($_POST['save'])) {
 </head>
 <body>
     <h1>New Record Insertion</h1>
-    <?php if ($message) { ?>
+    <?php 
+    if ($message) { ?>
         <div class="message"><?php echo $message; ?></div>
-    <?php } ?>
+    <?php } 
+    ?>
 </html>
