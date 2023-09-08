@@ -13,9 +13,12 @@ if (isset($_POST['save'])) {
     $email = $_POST["email"];
     $password = $_POST["password"];
 
+    // Hash the password for security
+    $hashed_password = md5($password);
+
     // Save the user's data to the database
     $sql = "INSERT INTO users (first_name, last_name, mobile_number, sex, birthDate, email, password) 
-    VALUES ('$first_name','$last_name', '$mobile_number', '$sex' ,'$birthDate', $email',' $password')";
+    VALUES ('$first_name','$last_name', '$mobile_number', '$sex' ,'$birthDate', $email',' $hashed_password')";
 
     if ($conn->query($sql) === TRUE) {
         $message = "New Data Inserted Successfully";
