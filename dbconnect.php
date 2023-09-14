@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$database = "price_tracker";
+$database = "test";
 
 // Create a connection to the database
 $conn = mysqli_connect($servername, $username, $password, $database);

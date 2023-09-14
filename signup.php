@@ -1,6 +1,6 @@
 <?php include 'dbconnect.php';
 
-$message = ''; // Variable to store the success message
+$message = ''; 
 
 // Check if the save button was clicked
 if (isset($_POST['save'])) {
@@ -9,16 +9,13 @@ if (isset($_POST['save'])) {
     $last_name = $_POST["last_name"];
     $mobile_number = $_POST["mobile_number"];
     $sex = $_POST["sex"];
-    $birthDate = $_POST["birthDate"];
+    $birth_date = $_POST["birth_date"];
     $email = $_POST["email"];
     $password = $_POST["password"];
 
-    // Hash the password for security
-    $hashed_password = md5($password);
-
     // Save the user's data to the database
-    $sql = "INSERT INTO users (first_name, last_name, mobile_number, sex, birthDate, email, password) 
-    VALUES ('$first_name','$last_name', '$mobile_number', '$sex' ,'$birthDate', $email',' $hashed_password')";
+    $sql = "INSERT INTO users (first_name, last_name, mobile_number, sex, birth_date, email, password) 
+    VALUES ('$first_name','$last_name', '$mobile_number', '$sex' ,'$birth_date', '$email',' $password')";
 
     if ($conn->query($sql) === TRUE) {
         $message = "New Data Inserted Successfully";
@@ -33,7 +30,7 @@ if (isset($_POST['save'])) {
 <!DOCTYPE html>
 <html>
 <head>
-    <title style="height: 50px;">Record Insertion</title>
+    <title style="height: 50px;">Record Successfully Inserted</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -54,7 +51,7 @@ if (isset($_POST['save'])) {
     </style>
 </head>
 <body>
-    <h1>New Record Insertion</h1>
+    <h1>Sign Up SUccessful</h1>
     <?php 
     if ($message) { ?>
         <div class="message"><?php echo $message; ?></div>
