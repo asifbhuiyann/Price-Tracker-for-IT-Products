@@ -1,16 +1,21 @@
 <?php
 include 'dbconnect.php';
+session_start();
 
-$sql = "SELECT first_name, last_name FROM users";
+// Get the email of the logged in user
+$email = $_SESSION['user_data']['email'];
+
+// SQL query to fetch first name and last name from the users table for the logged in user
+$sql = "SELECT first_name, last_name FROM users WHERE email = '$email'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     // Output data of each row
-    while ($row = $result->fetch_assoc()) {
+    while($row = $result->fetch_assoc()) {
         $Name = $row["first_name"] . ' ' . $row["last_name"];
     }
 } else {
-    echo "0 results";
+    echo "No results for the current user";
 }
 
 $jsonFile = 'trending_products.json';
@@ -25,6 +30,8 @@ $productData = json_decode(file_get_contents($jsonFile), true);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Featured Products</title>
 </head>
 
@@ -105,6 +112,45 @@ $productData = json_decode(file_get_contents($jsonFile), true);
     </section>
 
     <?php include 'footer.php'; ?>
+    <script>
+        // Initialize variables
+const voiceButton = document.getElementById('voiceButton');
+const searchInput = document.getElementById('userInput');
+
+let isListening = false;
+let recognition;
+
+// voice input
+function toggleVoiceRecognition() {
+    if (!isListening) {
+        isListening = true;
+        searchInput.placeholder = 'Listening...';
+        recognition = new webkitSpeechRecognition() || new SpeechRecognition();
+        recognition.lang = 'en-US';
+
+        recognition.onresult = function(event) {
+            const result = event.results[0][0].transcript;
+            searchInput.value = result;
+            isListening = false;
+            searchInput.placeholder = '';
+        };
+
+        recognition.onend = function() {
+            isListening = false;
+            searchInput.placeholder = '';
+        };
+
+        recognition.start();
+        voiceButton.style.color = 'red';
+    } else {
+        isListening = false;
+        searchInput.placeholder = '';
+        recognition.stop();
+    }
+}
+// Add click event listener to the voice button
+voiceButton.addEventListener('click', toggleVoiceRecognition);
+    </script>
 </body>
 
 </html>
