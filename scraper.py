@@ -1,8 +1,11 @@
 # pip install requests
 # pip install beautifulsoup4
+# pip install mysql-connector-python
 import requests
 from bs4 import BeautifulSoup
 import json
+import mysql.connector
+import re
 
 
 def scrape_data(url):
@@ -28,26 +31,58 @@ def scrape_data(url):
         # Fetch item name
         name_tag = item.find('h4', {'class': 'p-item-name'}).find('a')
         item_name = name_tag.text if name_tag else 'N/A'
+        link = name_tag.get('href', 'N/A') if name_tag else 'N/A'
 
         # Fetch price
         price_tag = item.find('div', {'class': 'p-item-price'}).find('span')
-        price = price_tag.text if price_tag else 'N/A'
+        price_str = price_tag.text if price_tag else 'TBA'
+
+        price = ''.join(
+            [char for char in price_str if char.isdigit()])
 
         data_list.append({
             'image_src': img_src,
             'item_name': item_name,
+            'link': link,
             'price': price
         })
 
     return data_list
 
 
+def save_to_mysql(data_list):
+
+    db_connection = mysql.connector.connect(
+        host="localhost",
+        user="root",
+        password="",
+        database="test"
+    )
+
+    cursor = db_connection.cursor()
+
+    # Prepare the INSERT statement
+    insert_query = """
+    INSERT INTO Product_details (img_src, item_name,link, price) VALUES (%s, %s, %s, %s)
+    """
+
+    for item in data_list:
+        # Execute the INSERT statement
+        cursor.execute(
+            insert_query, (item['image_src'], item['item_name'], item['link'], item['price']))
+
+    # Commit changes to the database
+    db_connection.commit()
+
+    # Close the connection
+    cursor.close()
+    db_connection.close()
+
+
 if __name__ == "__main__":
-    # Replace this with the URL you want to scrape from
-    url = "https://www.startech.com.bd/monitor"
+    url = "https://www.startech.com.bd/drone"
     scraped_data = scrape_data(url)
 
     if scraped_data:
-        with open('data collection/scraped_data.json', 'w') as f:
-            json.dump(scraped_data, f, indent=4)
-        print("Data saved to 'scraped_data.json'")
+        save_to_mysql(scraped_data)
+        print("Data saved to MySQL table 'Product_details'")

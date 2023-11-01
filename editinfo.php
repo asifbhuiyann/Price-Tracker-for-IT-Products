@@ -38,65 +38,71 @@ if (isset($_POST['update'])) {
 <html>
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #f7f9fc;
         }
 
-        form {
-            width: 400px;
-            margin: 0 auto;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        input[type="text"],
-        input[type="email"],
-        input[type="tel"],
-        select {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-        }
-
-        input[type="submit"] {
-            background-color: #007BFF;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            cursor: pointer;
+        .custom-form {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
 
 <body>
-    <h2 style="text-align: center;">Update Personal Details</h2>
-    <form method="post" action="editinfo.php">
-        <label for="first_name">First Name:</label>
-        <input type="text" id="first_name" name="new_first_name" required>
+    <div class="container">
 
-        <label for="last_name">Last Name:</label>
-        <input type="text" id="last_name" name="new_last_name" required>
+        <div class="custom-form">
+            <form method="post" action="editinfo.php">
+            <h2 class="text-center mb-4">Update Personal Details</h2>
+                <div class="form-group">
+                    <label for="first_name">First Name:</label>
+                    <input type="text" class="form-control" id="first_name" name="new_first_name" required>
+                </div>
 
-        <label for="mobile_number">Mobile Number:</label>
-        <input type="tel" id="mobile_number" name="new_mobile_number" required>
+                <div class="form-group">
+                    <label for="last_name">Last Name:</label>
+                    <input type="text" class="form-control" id="last_name" name="new_last_name" required>
+                </div>
 
-        <label for="sex">Sex:</label>
-        <select id="sex" name="new_sex" required>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="other">Other</option>
-        </select>
+                <div class="form-group">
+                    <label for="mobile_number">Mobile Number:</label>
+                    <input type="tel" class="form-control" id="mobile_number" name="new_mobile_number" required>
+                </div>
 
-        <label for="birth_date">Date of Birth:</label>
-        <input type="date" id="birth_date" name="new_birth_date" required>
-        <br><br>
-        <input type="submit" name="update" value="Update Details">
-    </form>
+                <div class="form-group">
+                    <label for="sex">Sex:</label>
+                    <select class="form-control" id="sex" name="new_sex" required>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
 
+                <div class="form-group">
+                    <label for="birth_date">Date of Birth:</label>
+                    <input type="date" class="form-control" id="birth_date" name="new_birth_date" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block" name="update">Update Details</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Include Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <script>
         var message = "<?php echo $message; ?>";

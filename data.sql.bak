@@ -10,3 +10,6 @@ CREATE TABLE users (
     pw VARCHAR(255) NOT NULL
 );
 -- table Creation
+-- 
+ALTER TABLE users
+ADD reset_key VARCHAR(64) DEFAULT NULL;
