@@ -310,6 +310,9 @@ if (isset($_POST['favorite']) && isset($_POST['img_src']) && isset($_POST['item_
                     <li class="nav-item">
                     <a class="nav-link" href="logout.php">LogOut</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="dev_info.php">Developer</a>
+                </li>
                 </ul>
             </div>
         </div>
