@@ -89,6 +89,9 @@ if ($productResult->num_rows > 0) {
                 <li class="nav-item">
                     <a class="nav-link" href="signup.php">Sign Up</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="dev_info.php">Developer</a>
+                </li>
             </ul>
         </div>
     </div>
